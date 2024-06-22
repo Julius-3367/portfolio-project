@@ -4,7 +4,7 @@ const transactionSchema = new mongoose.Schema({
     userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
     amount: { type: Number, required: true },
     method: { type: String, required: true },
-    status: { type: String, required: true, default: 'pending' },
+    status: { type: String, enum: ['pending', 'completed', 'failed'], default: 'pending', required: true },
     createdAt: { type: Date, default: Date.now }
 });
 
