@@ -30,6 +30,11 @@ mongoose.connect(MONGO_URI, {
 app.use('/api/auth', authRoutes); // Mount authentication routes
 app.use('/api/payments', paymentRoutes); // Mount payment routes
 
+// Define root route
+app.get('/', (req, res) => {
+    res.send('Welcome to the eCash Payment System API');
+});
+
 // Error handling middleware
 app.use((err, req, res, next) => {
     console.error(err.stack);
